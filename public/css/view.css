@@ -1,0 +1,54 @@
+body {
+  background-color: #1b262c;  
+}
+hr{
+  border-color:white;
+}
+
+
+.container.btn {
+  text-align: center;
+  margin: 0px 120px;  
+}
+
+.container {
+  height: 300px;
+  width: 40%;
+}
+.notfound {
+  text-align: center;
+  color: white;
+}
+.card1 {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style:preserve-3d ;
+  transition: all 0.5s ease;
+  margin: 30px auto;
+  text-align: center;
+}
+.card1:hover{
+  transform: rotateY(180deg);
+}
+.front {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: #010a43;
+  backface-visibility: hidden;
+  background-color: #ffc2c2;
+  text-align: center;
+  border-radius: 20px;
+}
+.back{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  background-color:gray;
+  color: aliceblue;
+  text-align: center;
+  border-radius: 20px;
+  transform: rotateY(180deg);
+}

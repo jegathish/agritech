@@ -1,0 +1,84 @@
+<%- include('partials/header') %>
+  <title>Posts</title>
+  <link rel="stylesheet" href="css/view.css">
+</head>
+<body>
+ 
+ <!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">AGRItech</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/need">Demand</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/available">Available</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/newpost">Newpost</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/mypost">Mypost</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <form class="form-inline my-2 my-lg-0" action="/search" method="post">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchName">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </li>
+    <li class="nav-item ml-2">
+      <a class="btn btn-outline-dark" href="/logout" role="button">Logout</a>
+    </li>
+  </ul>
+</div>
+</nav>
+
+<!-- content -->
+  <% if(items.length==0) { %>
+    <h1 class="notfound"><%= "No Found items!" %></h1>
+  <%} %>
+    <% items.forEach(function(value) { %>
+      <center>
+        <div class="container">
+          <div class="card1" id="class"> 
+              <div class="front">
+                <%= value.date %>
+                <h1><%= value.product %> (<%= value.postType %>)</h1>
+                <hr>
+                <h3><%= value.quantity %><%=value.scale%></h3>
+                <p><%= value.place %></p>                
+              </div>
+              <div class="back">
+                  <h3>Contact details:</h3>
+                  <h4>Name:  <%=value.name%></h4>
+                  <h4>Mobile: <%=value.mobile%></h5>
+                  <h5>Email: <%-value.email%></h5>
+                  <hr>
+                  Address:<address><%=value.address%></address></h4>
+                  <form action="/sendmail" method="post">
+                    <button type="submit"  class="btn btn-dark" name="productId" value=<%= value._id %> <%=mailType%> >Intrested on deal!</button>
+                  </form>    
+                  <form method="POST" action="/delete">
+                    <button type="submit" name="itemId" value=<%= value._id %> <%=deleteType%> >Delete</button>
+                  </form>                              
+              </div>
+          </div>
+        </div>
+      </center>
+      
+
+    <% }) %>
+    
+
+</body>
+</html>
+

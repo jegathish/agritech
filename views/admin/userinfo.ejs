@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER INFO</title>
+</head>
+<body>
+    <%users%>
+    <%posts%>
+    <center>
+    <% if (users==undefined){ %>
+        <h1>NOT FOUND!</h1>
+    <% } else {%>
+    <h1>USER INFO:</h1>
+    <hr>
+    <h3>id: <%= users[0].id %></h3>
+    <h3>name: <%= users[0].name %></h3>
+    <h3>email: <%= users[0].username %></h3>
+    <h3>mobile: <%= users[0].mobile %></h3>
+    <br>
+    <h3>POSTS</h3>
+    <hr>
+    <% posts.forEach(post => { %>
+        <%= post.time %>
+        <h1>Product name: <%= post.product %> (<%= post.postType %>)</h1>
+        <h3><%= post.quantity %><%=post.scale%></h3>
+        <p><%= post.place %></p>
+        <form method="POST" action="/delete">
+            <button type="submit" name="itemId" post=<%= post._id%> <%=deleteType%> >Delete</button>
+        </form>
+                
+        <h3>Contact details:</h3>
+        <h4>Name:  <%=post.name%></h4>
+        <h4>Mobile: <%=post.mobile%></h5>
+        <h5>Email: <%-post.email%></h5>
+        Address:<address><%=post.address%></address></h4>
+        <br>
+        ***********************************************************
+        <br>
+        <% }); }%>
+
+    </center>
+    
+</body>
+</html>

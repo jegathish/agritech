@@ -1,0 +1,14 @@
+body{
+    background-color: sandybrown;
+}
+
+td {
+    text-align: left;
+    padding: 10px;
+    font-size: large;
+}
+
+input {
+    padding: 5px;
+    
+}

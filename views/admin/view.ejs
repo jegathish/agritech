@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin_home</title>
+</head>
+<body>
+    <%data %> 
+    <% if(data.length==0) { %>
+        <h1 class="notfound"><%= "No Found items!" %></h1>
+      <%} %>
+        <% data.forEach(function(value) { %>
+          <center>
+              <li>
+                Name: <%=value.name%> id: <%=value.id%>
+              </li>             
+              <form action="/admin/user/userinfo" method="get">
+                <button type="submit" name="id" value=<%=value.id%> >More Info</button>
+              </form>
+              <form action="/admin/user/deleteuser" method="post">
+                <button type="submit" name="id" value=<%=value.id%> >Delete </button>
+              </form>
+              <br>
+            </form>
+    
+            </center>
+          
+    
+        <% }) %>
+        
+</body>
+</html>

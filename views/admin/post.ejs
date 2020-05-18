@@ -1,0 +1,42 @@
+
+<html>
+<head>
+    <title>posts-admin</title>
+</head>
+<body>
+        <%posts %> 
+        <% if(posts.length==0) { %>
+            <h1 class="notfound"><%= "No Found items!" %></h1>
+          <%} %>
+                  <% posts.forEach(function(post) { %>
+                    <center>
+                      <div class="container">
+                        <div class="card1" id="class"> 
+                            <div class="front">
+                              <%= post.time %>
+                              <h1><%= post.product %> (<%= post.postType %>)</h1>
+                              <hr>
+                              <h3><%= post.quantity %><%=post.scale%></h3>
+                              <p><%= post.place %></p>
+                              
+                            </div>
+                            <div class="back">
+                                <h3>Contact details:</h3>
+                                <h4>Name:  <%=post.name%></h4>
+                                <h4>Mobile: <%=post.mobile%></h5>
+                                <h5>Email: <%-post.email%></h5>
+                                <hr>
+                                Address:<address><%=post.address%></address></h4>
+                                <form action="/sendmail" method="post">
+                                  <button type="submit"  class="btn btn-dark" name="productId" post=<%= post._id %> <%=mailType%> >Intrested on deal!</button>
+                                </form>    
+                                <form method="POST" action="/delete">
+                                  <button type="submit" name="itemId" post=<%= post._id %> <%=deleteType%> >Delete</button>
+                                </form>                              
+                            </div>
+                        </div>
+              
+                    </center>
+
+</body>
+</html>

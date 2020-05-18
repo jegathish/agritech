@@ -1,0 +1,123 @@
+<%- include('partials/header') %>
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+  
+ <!-- navbar section-->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">AGRItech</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/need">Demand</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/available">Available</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/newpost">Newpost</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/mypost">Mypost</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <form class="form-inline my-2 my-lg-0" action="/search" method="post">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchName">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </li>
+    <li class="nav-item ml-2">
+      <a class="btn btn-outline-dark" href="/logout" role="button">Logout</a>
+    </li>
+  </ul>
+</div>
+</nav>
+
+<!-- main content section-->
+<div class="container-fluid">
+  <div class="row mb-3 ">
+
+    <!-- Additional info section -->
+    <div class="col-lg-7 col-md-6 additonal-info">
+      <div class="container-fluid">
+        <div class="posts">
+          <p class="3">Posts</p>
+          <div id="shiva"><span class="count">200</span></div>
+
+        </div>
+        <div class="users">
+          <p class="3">Users</p>
+        </div>
+        <div class="available">
+          <p class="3">Available</p>
+        </div>
+        <div class="demand">
+          <p class="3">Demand</p>
+        </div>
+        <div class="response">
+          <p class="3">Response</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- login section-->
+    <div class="col-lg-5 col-md-6 text-center">
+      <div class="container-fluid">
+        <form action="/login" method="post">
+          <div class="title mt-3">
+            <h3>LOGIN |<a href="/register"> REGISTER</a></h3>
+          </div>
+          <div class="error-info">
+            <% if (messages.error) { %>
+              <%= messages.error %>
+            <% } %>
+          </div>
+          <div class="login-data">
+            
+            <!-- email -->
+            <div class="input-group mb-3 email">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </span>
+              </div>
+              <input type="email" class="form-control" placeholder="Email" name="email" required>
+            </div>
+            
+            <!-- password -->
+            <div class="input-group mb-3 email Password">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fa fa-key" aria-hidden="true"></i>
+                </span>
+              </div>
+              <input type="password" class="form-control" placeholder="Password" name="password" required>
+            </div>
+            
+            <!-- submit -->
+            <div class="submit">
+              <button type="submit" class="btn btn-outline-dark">Login</button>
+            </div>
+
+            <!-- forgot-password -->
+            <div class="forgot-password">
+              <a href="#">forgot password?</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/Script/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(76, 85, 85);
+    height: 100%;
+    color: white;
+}
+
+.container {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.additional-info .login-info {
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
+}
